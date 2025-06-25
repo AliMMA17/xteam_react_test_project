@@ -25,7 +25,7 @@ export default function DailyCard({
                 isSelected
                     ? "overflow-hidden rounded-2xl bg-blue-200 text-black flex-[3_1_0%] min-w-0 p-4 justify-between"
                     // flex: 1 1 0%; allows equal share and shrink
-                    : "rounded-full bg-[#1c1c1e] text-gray-300 flex-[1_1_0%] min-w-0 p-3 flex flex-col justify-around items-center hover:bg-[#2a2a2c] hover:text-white"
+                    : "rounded-full bg-[#1c1c1e] text-gray-300 flex-[1_1_0%] min-w-0 py-3 px-0 flex flex-col justify-around items-center hover:bg-[#2a2a2c] hover:text-white"
 
             ].join(" ")}
             style={{ height: "100%" }}
