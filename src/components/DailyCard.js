@@ -21,23 +21,27 @@ export default function DailyCard({
         <div
             onClick={onClick}
             className={[
-                "cursor-pointer transition-all duration-500 ease-in-out overflow-hidden flex flex-col transition-colors",
+                "cursor-pointer transition-all duration-500 ease-in-out flex flex-col transition-colors",
                 isSelected
-                    ? "rounded-2xl bg-blue-200 text-black flex-[3] min-w-[240px] max-w-[280px] p-4 justify-between"
-                    : "rounded-full bg-[#1c1c1e] text-gray-300 flex-none w-28 p-3 flex flex-col justify-around items-center hover:bg-[#2a2a2c] hover:text-white"
+                    ? "overflow-hidden rounded-2xl bg-blue-200 text-black flex-[3_1_0%] min-w-0 p-4 justify-between"
+                    // flex: 1 1 0%; allows equal share and shrink
+                    : "rounded-full bg-[#1c1c1e] text-gray-300 flex-[1_1_0%] min-w-0 p-3 flex flex-col justify-around items-center hover:bg-[#2a2a2c] hover:text-white"
+
             ].join(" ")}
             style={{ height: "100%" }}
         >
             {isSelected ? (
                 <>
                     {/* — Expanded View — */}
-                    <div className="flex justify-between items-center text-sm mb-2">
-                        <p className="font-semibold">{day}</p>
+                    <div className="flex justify-between items-center mb-2">
+                        {/* Bolder, larger day */}
+                        <p className="text-lg font-bold">{day}</p>
                         <p className="text-xs">{time}</p>
                     </div>
 
                     <div className="flex justify-between items-center w-full mb-4">
-                        <p className="text-4xl font-bold">{temperature}°</p>
+                        {/* Bigger temperature */}
+                        <p className="text-5xl font-bold">{temperature}°</p>
                         <Image src={iconPath} alt={type} width={60} height={60} />
                     </div>
 
@@ -71,10 +75,12 @@ export default function DailyCard({
             ) : (
                 <>
                     {/* — Collapsed View — */}
+                    {/* Bolder and larger day */}
                     <div className="w-full border-b border-gray-700 pb-2">
-                        <p className="text-xs font-medium uppercase text-center">{day}</p>
+                        <p className="text-sm font-bold uppercase text-center">{day}</p>
                     </div>
 
+                    {/* Icon */}
                     <Image
                         src={iconPath}
                         alt={type}
@@ -83,7 +89,8 @@ export default function DailyCard({
                         className="mt-3"
                     />
 
-                    <p className="text-xl font-bold text-white mt-1">{temperature}°</p>
+                    {/* Bigger temperature */}
+                    <p className="text-3xl font-bold text-white mt-1">{temperature}°</p>
                 </>
             )}
         </div>

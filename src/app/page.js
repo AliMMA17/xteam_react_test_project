@@ -34,7 +34,7 @@ export default function HomePage() {
 
       {/* ─── Top Section: Daily Cards + Rain Chart ─── */}
       <section className="px-6 py-4 flex gap-4">
-        <div className="flex flex-row gap-6 sm:gap-8 overflow-x-auto w-full lg:w-3/5 h-72 pr-4">
+        <div className="flex flex-row gap-6 sm:gap-8 w-full lg:w-3/5 h-72 pr-4">
           {forecast.map((item, idx) => (
             <DailyCard
               key={idx}
@@ -54,7 +54,15 @@ export default function HomePage() {
           ))}
         </div>
 
-        <div className="flex-[1] bg-[#1c1c1e] p-4 rounded-lg h-72">
+        <div
+          className="
+               w-full            /* full on mobile */
+              sm:w-2/5          /* 40% at sm+ (>=640px) */
+              md:w-3/5          /* 60% at md+ (>=768px) */
+              lg:w-2/5          /* 40% again on lg+ (>=1024px) */
+              bg-[#1c1c1e] p-4 rounded-lg h-72
+        "
+        >
           <RainChart />
         </div>
       </section>
