@@ -22,7 +22,6 @@ export default function DailyCard({
             onClick={onClick}
             className={[
                 "cursor-pointer transition-all duration-500 ease-in-out overflow-hidden flex flex-col transition-colors",
-                // conditional rounding + sizing
                 isSelected
                     ? "rounded-2xl bg-blue-200 text-black flex-[3] min-w-[240px] max-w-[280px] p-4 justify-between"
                     : "rounded-full bg-[#1c1c1e] text-gray-300 flex-none w-28 p-3 flex flex-col justify-around items-center hover:bg-[#2a2a2c] hover:text-white"
@@ -72,17 +71,19 @@ export default function DailyCard({
             ) : (
                 <>
                     {/* — Collapsed View — */}
-                    <p className="text-xs font-medium uppercase">{day}</p>
+                    <div className="w-full border-b border-gray-700 pb-2">
+                        <p className="text-xs font-medium uppercase text-center">{day}</p>
+                    </div>
 
                     <Image
                         src={iconPath}
                         alt={type}
                         width={60}
                         height={60}
-                        className="mt-2"
+                        className="mt-3"
                     />
 
-                    <p className="text-xl font-bold text-white">{temperature}°</p>
+                    <p className="text-xl font-bold text-white mt-1">{temperature}°</p>
                 </>
             )}
         </div>
