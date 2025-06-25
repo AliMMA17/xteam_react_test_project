@@ -36,13 +36,13 @@ export default function DailyCard({
                     <div className="flex justify-between items-center mb-2">
                         {/* Bolder, larger day */}
                         <p className="text-lg font-bold">{day}</p>
-                        <p className="text-xs">{time}</p>
+                        <p className="text-lg">{time}</p>
                     </div>
 
                     <div className="flex justify-between items-center w-full mb-4">
                         {/* Bigger temperature */}
                         <p className="text-5xl font-bold">{temperature}°</p>
-                        <Image src={iconPath} alt={type} width={60} height={60} />
+                        <Image src={iconPath} alt={type} width={100} height={100} />
                     </div>
 
                     <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs">
